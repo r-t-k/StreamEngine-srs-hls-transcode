@@ -1,8 +1,9 @@
 # StreamEngine-srs-hls-transcode
 ## Config for 720p, 1080p, and 480p
 There are currently 3 separate servers running each transcode target resolution AND serving the VODS.
-Then plan is to take advantage of the SRS builtin docker cluster mode and to separate out the transcode from the vod delivery all together.
+The plan is to take advantage of the SRS builtin docker cluster mode and to separate out the transcode from the vod delivery all together.
 
+Also using IBM as a bitrate guide: https://support.video.ibm.com/hc/en-us/articles/207852117-Internet-connection-and-recommended-encoding-settings
 ### 720p
 
 `
