@@ -38,11 +38,19 @@ docker run -p 1935:1935 -p 1985:1985 -p 8080:8080 \
 ```
 ### ABR (WIP)
 ```
-docker run -p 1935:1935 -p 1985:1985 -p 80:80 \
+docker run -p 1935:1935 -p 1985:1985 -p 8080:8080 \
     -v /root/srs/conf/abr.conf:/usr/local/srs/conf/srs.conf \
     -v /root/srs/log/srs.log:/usr/local/srs/objs/srs.log \
     -v /root/srs/vod/:/usr/local/srs/objs/nginx/html/vod/ \
     -v /root/srs/hls/:/usr/local/srs/objs/nginx/html/hls/ \
     -v /root/srs/m3u8/master.m3u8:/usr/local/srs/objs/nginx/html/live/master.m3u8 \
+     --env "VIRTUAL_HOST=transcode.streamengine.live" \
+    --env "VIRTUAL_PORT=8080" \
+    --env "LETSENCRYPT_HOST=transcode.streamengine.live" \
     ossrs/srs:3
+```
+### Proxy
+```
+cd srs/reverse-proxy
+docker-compose up -d
 ```
